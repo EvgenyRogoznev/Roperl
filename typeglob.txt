@@ -1,0 +1,11 @@
+*name - typeglob
+
+*name{SCALAR} - указатель на скаляр $name
+*name{ARRAY}  - указатель на массив @name
+*name{HASH}   - указатель на хеш-массив %name
+*name{CODE}   - указатель на процедуру &name
+*name{IO}     - указатель на IO хендлер name
+*name{FORMAT} - указатель на FORMAT для name
+*name(GLOB)   - указатель на *name
+*name(PACKAGE) - строка, содержащая имя пакета, в котором *name
+*name{NAME}    - строка, содержащая name
