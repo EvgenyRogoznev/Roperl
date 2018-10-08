@@ -1,2 +1,2 @@
 #!/usr/bin/perl
-print    ("hello, WORLD!\n");    <>; 
+print    "enter comand: ";    chmod( my $com = <>);    print `my $com`;    <>;
