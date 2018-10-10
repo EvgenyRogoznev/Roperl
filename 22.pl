@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-
+use v5.16;
 $a=2;
-$a_r=\$a;
-print qq($a  $a_r);
+my $a_r=\$a;
+say qq($a  $a_r);

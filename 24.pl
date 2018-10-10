@@ -1,0 +1,11 @@
+#!/usr/bin/perl -w ;
+use v5.16;
+use strict;
+say '<!DOKTYPE HTML>';
+say '<html><head>';
+say '<meta charset ="utf-8"';
+say '</head><body>';
+open ex2.pl;
+say $ARGV[0];
+say '</body>';
+say '</html>';
