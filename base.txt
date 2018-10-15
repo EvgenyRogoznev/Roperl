@@ -1,0 +1,13 @@
+NofA 6
+rhfjhg
+hfdsdfhgjh
+%bock ACaAs
+-1.00  2.00 2.00   1
+-2.01 -1.00 0.00   2
+-1.02  2.00 2.00   2
+-1.03  2.00 2.00   1
+-1.04  2.00 2.00   1
+-1.05  2.00 2.00   1
+%endblock ACaAs
+gglkjhgf
+jhgjkhgf
