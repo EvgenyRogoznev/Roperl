@@ -1,0 +1,9 @@
+FIO                              subject               Evaluation
+Ivanov Ivan Ivanovich            mathematics           5
+Pupkin Vasily Ivanovich          higher mathematics    5
+Sidorov Konstantin Fedorovich    physics               5
+Ivanov Ivan Ivanovich            physics               3
+Pupkin Vasily Ivanovich          mathematics           4
+Sidorov Konstantin Fedorovich    mathematics           5
+Ivanov Ivan Ivanovich            higher mathematics    5
+Sidorov Konstantin Fedorovich    higher mathematics    5
