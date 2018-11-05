@@ -1,7 +1,15 @@
 #!/usr/bin/env perl;
 use strict;
 use 5.010;
+<<<<<<< HEAD
 open (FIL, "< test.txt");
+=======
+use utf8;
+
+open (FIL, "<test.txt");
+#binmode(STDOUT, ':encoding'.($ENV{'LANG'}? '(utf8)': '(cp-866)') );
+
+>>>>>>> 550eb9821167a338381deca984c016d8cad84fd3
 my @string=<FIL>; # передал в массив   @string текст построчно
 my $note= @string.length; # определил количество  элементов массива $note
 #создаем новый массив @theProcessedList  приводим строки к однообразию
