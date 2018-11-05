@@ -2,7 +2,12 @@
 
 use v5.16;
 use utf8;
+<<<<<<< HEAD
 binmode(STDOUT, ':encoding'.($ENV{'LANG'}? '(utf8)': '(cp-1251)') );
+=======
+say"прпрполв";
+binmode(STDOUT, ':encoding'.($ENV{'LANG'}? '(utf8)': '(cp-866)') );
+>>>>>>> 550eb9821167a338381deca984c016d8cad84fd3
 
 sub pause_pr
 {
