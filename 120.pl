@@ -1,7 +1,7 @@
 #!/usr/bin/env perl;
 use strict;
 use 5.010;
-open (FIL, "<testEn.txt");
+open (FIL, "< test.txt");
 my @string=<FIL>; # передал в массив   @string текст построчно
 my $note= @string.length; # определил количество  элементов массива $note
 #создаем новый массив @theProcessedList  приводим строки к однообразию
