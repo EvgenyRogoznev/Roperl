@@ -2,7 +2,7 @@
 
 use v5.16;
 use utf8;
-binmode(STDOUT, ':encoding'.($ENV{'LANG'}? '(utf8)': '(cp-866)') );
+binmode(STDOUT, ':encoding'.($ENV{'LANG'}? '(utf8)': '(cp-1251)') );
 
 while(<DATA>) {
   print if /[щр]/;
