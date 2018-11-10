@@ -1,9 +1,10 @@
 package Isrevalid;
 use 5.016;
+require Exporter;
 our $VERSION=v0.1;
-our @ISA = "Exporter";
+our @ISA = qw(Exporter);
 our @EXPORT = "&isrevalid";
-our @EXPORT_OK=qw(p_re);
+our @EXPORT_OK=qw($p_re %orc );
 our %orc=('('=>'\)','{'=>'\}','['=>'\]');
 our $p_re=qr/^(
         ([[{(])
