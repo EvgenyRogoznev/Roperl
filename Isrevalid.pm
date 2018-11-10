@@ -6,15 +6,14 @@ our @ISA = qw(Exporter);
 our @EXPORT = "&isrevalid";
 our @EXPORT_OK=qw($p_re %orc );
 our %orc=('('=>'\)','{'=>'\}','['=>'\]');
-our $p_re=qr/^(
-        ([[{(])
+our $p_re=qr/(?'pp'
+        (?'op'[[{(])(?{say"1:$`:$&:";})
         (?:
-        S
-       (?>[^][)(}{]+)
+       (?>[^][)(}{]+)(?{say"2:$`:$&:";})
         |
-        (?1)
+        (??{$+{'pp'};})(?{say"3:$`:$&:";})
         )*
-        (??{$orc{$2};})
+        (??{$orc{$+{'op'}};})
     )/x;
 sub isrevalid {
     my($e)=@_;
