@@ -22,7 +22,7 @@ sub STORE {
     if(!exists $keys{$me}->{$k}){
     croak "can not use $k as hash keys";
     };
-$me->SUPER::STORE;#УСТАРЕВШИЙ ВЫЗО ФУНКЦИИ НЕ МЕНЯЮЩИЙ МАССИВ @_
+$me->SUPER::STORE($k,$v);#УСТАРЕВШИЙ ВЫЗО ФУНКЦИИ НЕ МЕНЯЮЩИЙ МАССИВ @_
 
 };
 sub DESTROY{delete $keys{$_[0]}};
