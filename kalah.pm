@@ -29,17 +29,15 @@ sub to_txt {
     my $txt;
     if ($to==1){
         $txt.=join'','  ', (map{sprintf ' %2d',$_;}reverse @{$me->{holes2}}),"\n";
-    
-        $txt.=join'', sprintf('%d',$me->{kalah2}),' 'x ($HOLES_NUM x3),$me->{kalah1},"\n";
-        $txt.=join'','  ',( map{sprintf (' %2d'),$_} @{$me->{holes1}}),"\n";
+        $txt.=join'', sprintf('%d',$me->{kalah2}),'    'x($HOLES_NUM ),$me->{kalah1},"\n";
+        $txt.=join'','  ',( map{sprintf ' %2d',$_} @{$me->{holes1}}),"\n";
         }
    if ($to==2){
-        $txt.=join'','  ', (map{sprintf (' %2d'),$_}reverse @{$me->{holes2}}),"\n";
-    
-        $txt.=join'', sprintf('%d',$me->{kalah2}),' 'x ($HOLES_NUM x3),$me->{kalah1},"\n";
-        $txt.=join'','  ',( map{sprintf (' %2d'),$_} @{$me->{holes1}}),"\n";
-        };
-        $txt;
+        $txt.=join'','  ', (map{sprintf ' %2d',$_;}reverse @{$me->{holes1}}),"\n";
+        $txt.=join'', sprintf('%d',$me->{kalah1}),'    'x($HOLES_NUM ),$me->{kalah2},"\n";
+        $txt.=join'','  ',( map{sprintf ' %2d',$_} @{$me->{holes2}}),"\n";
+        }
+       $txt; 
    }
 #    say sprintf '%-3s %-3s %-3s %-3s %-3s %-3s'
 
