@@ -5,7 +5,8 @@ my $is_game_o = new Kalah();
 my ($hn,$cc);
 while (!$is_game_o->is_game_over()){
     print $is_game_o->to_txt(1);
-    $hn=get_hn($is_game_o);
+    $hn=($is_game_o->get_hn);
+    #print $hn;
     $cc=($is_game_o->do_move($hn));
     if (0==$cc){say "$cc";# дуальная прерменная в строке одно в числе другое
     next;

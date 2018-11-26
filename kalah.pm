@@ -20,10 +20,25 @@ sub new {
 sub is_game_over{return 0;};#0 или 1 или2
 sub gen_kallah{{%dset}};
 sub get_hn{
-    say "vvedite 1-6";
-    $_=<STDIN>;
-chomp;
-$_;}
+        my ($me)=@_;
+        my $changedHoles;
+        while($changedHoles eq undef){
+                say "vvedite 1-6";
+        $_=<STDIN>;
+         chomp;
+        $changedHoles=$_;
+        if(${$me->{holes1}}[$changedHoles]==0){
+        say"But in this hole not stone, change another hole";
+        $changedHoles=undef;
+        next;
+        };                #проверка не пустая ли лунка
+        if (!$changedHoles=~/[1,6]/){say"Not holes with your changed number";
+        $changedHoles=undef;
+        next;
+        };                  #на целое число от 1 до 6
+        };
+    $changedHoles;
+    };
 sub to_txt {
     my ($me,$to)=@_;
     my $txt;
