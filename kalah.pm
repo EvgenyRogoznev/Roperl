@@ -11,6 +11,7 @@ my %dset=(turn=>1,
         kalah2=>0,
         holes1=>[($STONE_NUM)x$HOLES_NUM],
         holes2=>[($STONE_NUM)x$HOLES_NUM],);
+
 sub new {
     my $cl=shift;
     my $o=(@_?gen_kalah(@_):{%dset});
@@ -54,7 +55,38 @@ sub to_txt {
         }
        $txt; 
    }
-#    say sprintf '%-3s %-3s %-3s %-3s %-3s %-3s'
+sub do_move {
+        our ($me,$hn)=@_;
+        our $pl=$me->{turn};
+        our $n=$me->{turn};
+        our $hole =$me->{'holes'.$n}[$hn];
+        sub holePlus {
+                $me->{'holes'.$pl}[$hn-1]++;
+        }; #кладёт камень в лунку HN PL
+        say "holePl";
+        sub change_Pl {
+                if($pl==1){$pl=2;}
+                else{$pl=1;};
+               say "chang";
+        };
+        sub kalahPlus {
+                if($pl=$n){
+                   $me->{'kalah'.$pl}++;
+      #           say  $me->{'kalah'.$pl};
+                }
+                else{$hole=+1;};
+              say 'kalahPlus';
+        };# кладёт камень в калах PL ecли PL=Turn  в другом случае hole+1
+      for ($pl=$n,$me->{'holes'.$n}[$hn-1]=0;$hole>0;$hole--){
 
-
+              if (!$hn==6){
+                      $hn+=1;
+                      holePlus;    
+                }
+                else{$hn=1;
+                kalahPlus;
+                change_Pl;
+                };
+      };    
+        };
 1;
