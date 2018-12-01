@@ -9,7 +9,6 @@ our $WIN3=3;
 our $EXPORT_OK= qw($WIN1 $WIN2 $WIN3);
 our $INV_TURN=0;
 
-
 sub is_game_over {...};
 sub new {...};
 sub totxt {...};

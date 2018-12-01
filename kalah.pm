@@ -18,7 +18,6 @@ sub new {
     $cl=ref($cl)||$cl;
     bless ($o,$cl);
 };        
-sub is_game_over {return 0;};#0 или 1 или2
 sub gen_kallah{{%dset}};
 sub get_hn{
         my ($me)=@_;
@@ -86,12 +85,78 @@ sub do_move {
                 kalahPlus;
                 change_Pl;
                 };
-      }; 
+        }; 
       if($n==$pl && $hole==1){print 2222};
       return 1;   
-        };
-sub turn {2};
-sub get_move {
-        
 };
+sub turn {
+        my ($me,$pl,$hn)=@_;
+
+        if($me->{turn}==$pl){
+                if($me->{'holes'.$pl}[$hn-1]==1){
+                        #вычислить противоположную лунки игрока и из неё положить всекамни в нашу лунку. в противоположной лунке теперь 0
+                }
+                else{ &total;
+                };
+        }else{
+                if(#последний камень был в каллах игрока турн )
+                {
+                        &total;
+                }else {$me->{turn}==1?2:1};
+                &total
+        }
+
+return $me->{turn};
+};
+sub total {
+        my ($me)=@_;
+        my @pl1=$me->{holes1};
+        my @pl2=$me->{holes2};
+        my $sum1;
+        my $sum2;
+        $sum1 += $_ foreach @pl1;
+        $sum2 += $_ foreach @pl2;
+        if($sum1==0){$me->{kalah2}+=$sum1;
+        $me->{holes2}->[0 x $HOLES_NUM];
+        $me->{holes1}->[0 x $HOLES_NUM];
+        };
+        elsif ($sum2==0){$me->{kalah1}+=$sum2;
+        $me->{holes2}->[0 x $HOLES_NUM];
+        $me->{holes1}->[0 x $HOLES_NUM];
+        };
+
+
+}
+sub get_move {
+      my ($me)=@_;
+        my $changedHoles;
+        while(!defined $changedHoles){
+                my $t=$me->{turn};
+                return 0 if $me->is_game_over();
+                my@ix=grep{$me->{'holes'.$t}->[$_];}1..$HOLES_NUM;
+                $changedHoles=$ix[rand 0+@ix];
+        
+                if(${$me->{'holes'.$t}}[$changedHoles-1]==0){
+                        $changedHoles=undef;
+                        next;
+                        };                #проверка не пустая ли лунка
+                if (!$changedHoles=~/[1,6]/){
+                        $changedHoles=undef;
+                        next;
+                };                  #на целое число от 1 до 6
+        };
+        $changedHoles;
+};
+
+sub is_game_over {
+        my($me)=@_;
+        my($k1, $k2)=($me->{kalah1},$me->{kalah2});
+        my $hsq=$STONE_NUM*$HOLES_NUM;
+        return 0 if ($k1<$hsq&& $k2<$hsq);
+        $me->{turn}=0;
+        return $Game2::WIN1 if $k1>$hsq;
+        return $Game2::WIN2 if $k2>$hsq;
+        return $Game2::WIN3 if $k1==$hsq/2;
+        };    
+
 1;
