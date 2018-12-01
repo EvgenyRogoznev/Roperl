@@ -23,12 +23,12 @@ sub gen_kallah{{%dset}};
 sub get_hn{
         my ($me)=@_;
         my $changedHoles;
-        while($changedHoles eq undef){
+        while(!defined $changedHoles){
                 say "vvedite 1-6";
         $_=<STDIN>;
          chomp;
         $changedHoles=$_;
-        if(${$me->{holes1}}[$changedHoles]==0){
+        if(${$me->{holes1}}[$changedHoles-1]==0){
         say"But in this hole not stone, change another hole";
         $changedHoles=undef;
         next;
@@ -59,7 +59,7 @@ sub do_move {
         our ($me,$hn)=@_;
         our $pl=$me->{turn};
         our $n=$me->{turn};
-        our $hole =$me->{'holes'.$n}[$hn];
+        our $hole =$me->{'holes'.$n}[$hn-1];
         sub holePlus {
                 $me->{'holes'.$pl}[$hn-1]++;
         }; #кладёт камень в лунку HN PL
@@ -67,23 +67,22 @@ sub do_move {
         sub change_Pl {
                 if($pl==1){$pl=2;}
                 else{$pl=1;};
-               say "chang";
+               say "chang $pl";
         };
         sub kalahPlus {
-                if($pl=$n){
+                if($pl==$n){
                    $me->{'kalah'.$pl}++;
-      #           say  $me->{'kalah'.$pl};
                 }
-                else{$hole=+1;};
+                else{$hole+=1;};
               say 'kalahPlus';
         };# кладёт камень в калах PL ecли PL=Turn  в другом случае hole+1
-      for ($pl=$n,$me->{'holes'.$n}[$hn-1]=0;$hole>0;$hole--){
+      for ($me->{'holes'.$n}[$hn-1]=0;$hole>0;$hole--){
 
-              if (!$hn==6){
+              if (!($hn==6)){
                       $hn+=1;
-                      holePlus;    
+                      holePlus;
                 }
-                else{$hn=1;
+                else{$hn=0;
                 kalahPlus;
                 change_Pl;
                 };
