@@ -91,5 +91,7 @@ sub do_move {
       return 1;   
         };
 sub turn {2};
-sub get_move {};
+sub get_move {
+        
+};
 1;
