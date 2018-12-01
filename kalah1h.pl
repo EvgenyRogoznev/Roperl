@@ -11,7 +11,7 @@ while (!$is_game_o->is_game_over()){#если не геймовер  цикл
                                     # если повтор хода и причину повтора в строке
     if (0==$cc){say "$cc";# дуальная прерменная в строке одно в числе другое
     next;
-    }
+    }; 
     print $is_game_o->to_txt(1);
     while (2==$is_game_o->turn()){
         print $is_game_o->to_txt(1);
