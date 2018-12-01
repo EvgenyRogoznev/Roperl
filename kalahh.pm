@@ -151,5 +151,5 @@ return $ix[rand 0+@ix];
                 return $Game2::WIN1 if $k1<$hsq&& $k2<$hsq;
                 return $Game2::WIN2 if $k1<$hsq&& $k2<$hsq;
                 return $Game2::WIN3 if $k1<$hsq&& $k2<$hsq;
-        };
+        };    
 1;
