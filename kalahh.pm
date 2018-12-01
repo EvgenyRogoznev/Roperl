@@ -11,7 +11,7 @@ my %dset=(turn=>1,
         holes1=>[($STONE_NUM)x$HOLES_NUM],
         holes2=>[($STONE_NUM)x$HOLES_NUM],);
 
-sub new {
+sub new  {
     my $cl=shift;
     my $o=(@_?gen_kalah(@_):{%dset});
     $cl=ref($cl)||$cl;

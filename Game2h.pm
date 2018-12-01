@@ -3,7 +3,7 @@ package Game2;
 use base 'Exporter';
 use strict;
 use 5.016;
-our $WIN1=1;
+our $WIN1=1; 
 our $WIN2=2;
 our $WIN3=3;
 our $EXPORT_OK= qw($WIN1 $WIN2 $WIN3);
