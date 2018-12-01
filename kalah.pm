@@ -17,8 +17,8 @@ sub new {
     my $o=(@_?gen_kalah(@_):{%dset});
     $cl=ref($cl)||$cl;
     bless ($o,$cl);
-}        
-sub is_game_over{return 0;};#0 или 1 или2
+};        
+sub is_game_over {return 0;};#0 или 1 или2
 sub gen_kallah{{%dset}};
 sub get_hn{
         my ($me)=@_;
@@ -63,18 +63,18 @@ sub do_move {
         sub holePlus {
                 $me->{'holes'.$pl}[$hn-1]++;
         }; #кладёт камень в лунку HN PL
-        say "holePl";
+        #say "holePl";
         sub change_Pl {
                 if($pl==1){$pl=2;}
                 else{$pl=1;};
-               say "chang $pl";
+               #say "chang $pl";
         };
         sub kalahPlus {
                 if($pl==$n){
                    $me->{'kalah'.$pl}++;
                 }
                 else{$hole+=1;};
-              say 'kalahPlus';
+              #say 'kalahPlus';
         };# кладёт камень в калах PL ecли PL=Turn  в другом случае hole+1
       for ($me->{'holes'.$n}[$hn-1]=0;$hole>0;$hole--){
 
@@ -86,6 +86,9 @@ sub do_move {
                 kalahPlus;
                 change_Pl;
                 };
-      };    
+      }; 
+      if($n==$pl && $hole==1){print 2222};
+      return 1;   
         };
+sub turn {2};
 1;
